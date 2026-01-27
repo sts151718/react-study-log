@@ -10,7 +10,7 @@ export const App = () => {
     <>
       <h1>学習記録一覧</h1>
       {records.map((rec) => (
-        <p>
+        <p key={rec.title}>
           {rec.title} {rec.time}時間
         </p>
       ))}
