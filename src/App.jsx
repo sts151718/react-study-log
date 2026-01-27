@@ -1,3 +1,3 @@
 export const App = () => {
-  return <p></p>
+  return <h1>学習記録一覧</h1>
 }
