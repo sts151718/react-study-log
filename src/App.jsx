@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
 export const App = () => {
-  const records = [
+  const [records, setRecords] = useState([
     { title: '勉強の記録1', time: 1 },
     { title: '勉強の記録2', time: 3 },
     { title: '勉強の記録3', time: 5 },
-  ];
+  ]);
 
   const [studyText, setStudyText] = useState('');
   const [studyTime, setStudyTime] = useState('');
@@ -16,6 +16,14 @@ export const App = () => {
 
   const onStudyTimeChange = (e) => {
     setStudyTime(e.target.value);
+  };
+
+  const onClickAdd = () => {
+    if (studyText === '') return;
+    const newRecords = [...records, { title: studyText, time: studyTime }];
+    setRecords(newRecords);
+    setStudyText('');
+    setStudyTime(0);
   };
 
   return (
@@ -36,6 +44,7 @@ export const App = () => {
           {rec.title} {rec.time}時間
         </p>
       ))}
+      <button onClick={onClickAdd}>登録</button>
     </>
   );
 };
