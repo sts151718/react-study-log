@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { StudyInput } from './components/StudyInput';
 import { StudyRecords } from './components/StudyRecords';
+import { StudySum } from './components/StudySum';
 
 export const App = () => {
   const [records, setRecords] = useState([]);
@@ -38,13 +39,7 @@ export const App = () => {
       <p>入力されている学習時間: {studyTime}時間</p>
       <StudyRecords records={records} />
       <button onClick={onClickAdd}>登録</button>
-      <p>
-        合計時間：
-        {records.reduce((sumTime, rec) => {
-          return sumTime + parseInt(rec.time);
-        }, 0)}
-        / 1000(h)
-      </p>
+      <StudySum records={records} />
       {error === '' || <p>{error}</p>}
     </>
   );
