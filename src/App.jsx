@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { StudyInput } from './components/StudyInput';
+import { StudyRecords } from './components/StudyRecords';
 
 export const App = () => {
   const [records, setRecords] = useState([]);
@@ -35,11 +36,7 @@ export const App = () => {
       <StudyInput label="学習時間" value={studyTime} onChange={onStudyTimeChange} id="study-time-input" type="number" />
       <p>入力されている学習内容: {studyText}</p>
       <p>入力されている学習時間: {studyTime}時間</p>
-      {records.map((rec) => (
-        <p key={rec.title}>
-          {rec.title} {rec.time}時間
-        </p>
-      ))}
+      <StudyRecords records={records} />
       <button onClick={onClickAdd}>登録</button>
       <p>
         合計時間：
