@@ -46,6 +46,13 @@ export const App = () => {
         </p>
       ))}
       <button onClick={onClickAdd}>登録</button>
+      <p>
+        合計時間：
+        {records.reduce((sumTime, rec) => {
+          return sumTime + parseInt(rec.time);
+        }, 0)}
+        / 1000(h)
+      </p>
       {error === '' || <p>{error}</p>}
     </>
   );
