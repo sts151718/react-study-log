@@ -4,6 +4,7 @@ import { StudyRecords } from './components/StudyRecords';
 import { StudySum } from './components/StudySum';
 import { BaseButton } from './components/BaseButton';
 import { ErrorMessage } from './components/ErrorMessage';
+import { AppTitle } from './components/AppTitle';
 
 export const App = () => {
   const [records, setRecords] = useState([]);
@@ -34,7 +35,7 @@ export const App = () => {
 
   return (
     <>
-      <h1>学習記録一覧</h1>
+      <AppTitle>学習記録一覧</AppTitle>
       <StudyInput label="学習内容" value={studyText} onChange={onStudyTextChange} id="study-text-input" />
       <StudyInput label="学習時間" value={studyTime} onChange={onStudyTimeChange} id="study-time-input" type="number" />
       <p>入力されている学習内容: {studyText}</p>
