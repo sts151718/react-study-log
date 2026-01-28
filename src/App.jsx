@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { StudyInput } from './components/StudyInput';
 import { StudyRecords } from './components/StudyRecords';
 import { StudySum } from './components/StudySum';
+import { BaseButton } from './components/BaseButton';
 
 export const App = () => {
   const [records, setRecords] = useState([]);
@@ -38,7 +39,7 @@ export const App = () => {
       <p>入力されている学習内容: {studyText}</p>
       <p>入力されている学習時間: {studyTime}時間</p>
       <StudyRecords records={records} />
-      <button onClick={onClickAdd}>登録</button>
+      <BaseButton onClick={onClickAdd}>登録</BaseButton>
       <StudySum records={records} />
       {error === '' || <p>{error}</p>}
     </>
