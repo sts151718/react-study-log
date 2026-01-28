@@ -3,6 +3,7 @@ import { StudyInput } from './components/StudyInput';
 import { StudyRecords } from './components/StudyRecords';
 import { StudySum } from './components/StudySum';
 import { BaseButton } from './components/BaseButton';
+import { ErrorMessage } from './components/ErrorMessage';
 
 export const App = () => {
   const [records, setRecords] = useState([]);
@@ -41,7 +42,7 @@ export const App = () => {
       <StudyRecords records={records} />
       <BaseButton onClick={onClickAdd}>登録</BaseButton>
       <StudySum records={records} />
-      {error === '' || <p>{error}</p>}
+      {error === '' || <ErrorMessage>{error}</ErrorMessage>}
     </>
   );
 };
