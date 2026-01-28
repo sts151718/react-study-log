@@ -4,7 +4,8 @@ export const App = () => {
   const [records, setRecords] = useState([]);
 
   const [studyText, setStudyText] = useState('');
-  const [studyTime, setStudyTime] = useState('');
+  const [studyTime, setStudyTime] = useState(0);
+  const [error, setError] = useState('');
 
   const onStudyTextChange = (e) => {
     setStudyText(e.target.value);
@@ -15,7 +16,11 @@ export const App = () => {
   };
 
   const onClickAdd = () => {
-    if (studyText === '') return;
+    setError('');
+    if (studyText === '' || studyTime === '') {
+      setError('入力されていない項目があります。');
+      return;
+    }
     const newRecords = [...records, { title: studyText, time: studyTime }];
     setRecords(newRecords);
     setStudyText('');
@@ -41,6 +46,7 @@ export const App = () => {
         </p>
       ))}
       <button onClick={onClickAdd}>登録</button>
+      {error === '' || <p>{error}</p>}
     </>
   );
 };
