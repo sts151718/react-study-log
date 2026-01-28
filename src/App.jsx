@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { StudyInput } from './components/StudyInput';
 
 export const App = () => {
   const [records, setRecords] = useState([]);
@@ -30,14 +31,8 @@ export const App = () => {
   return (
     <>
       <h1>学習記録一覧</h1>
-      <div>
-        <label htmlFor="study-text-input">学習内容</label>
-        <input type="text" id="study-text-input" value={studyText} onChange={onStudyTextChange} />
-      </div>
-      <div>
-        <label htmlFor="study-time-input">学習時間</label>
-        <input type="number" id="study-time-input" value={studyTime} onChange={onStudyTimeChange} />
-      </div>
+      <StudyInput label="学習内容" value={studyText} onChange={onStudyTextChange} id="study-text-input" />
+      <StudyInput label="学習時間" value={studyTime} onChange={onStudyTimeChange} id="study-time-input" type="number" />
       <p>入力されている学習内容: {studyText}</p>
       <p>入力されている学習時間: {studyTime}時間</p>
       {records.map((rec) => (
